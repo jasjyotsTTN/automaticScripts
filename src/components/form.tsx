@@ -5,7 +5,9 @@ import { recoildFormValues } from "../store/atoms/values";
 const Form = () => {
   const [formValues, setFormValues] = useRecoilState(recoildFormValues);
 
-  function handleClick() {}
+  function handleClick(e: any) {
+    e.preventDefault();
+  }
 
   function onChangeValues(val: any, objectKey: string) {
     setFormValues({ ...formValues, [objectKey]: val.target.value });
