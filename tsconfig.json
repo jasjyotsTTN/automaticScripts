@@ -13,6 +13,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    
+    //directories
+     "rootDir": "./src",
+     "outDir": "./dist",
 
     /* Linting */
     "strict": true,

@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { RecoilRoot } from "recoil";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Form from "./components/form";
+import TabView from "./components/tabView";
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface Color {
+  color: string;
 }
 
-export default App
+const Tabs = (val: Color) => {
+  const [openTab, setOpenTab] = useState(1);
+  return (
+    <>
+      <TabView
+        openTabIndex={openTab}
+        onSelectFunction={setOpenTab}
+        selectedTextColor={val.color}
+      />
+    </>
+  );
+};
+
+export default function App() {
+  return (
+    <RecoilRoot>
+      <div className="sm:px-12 px-2.5">
+        <Tabs color="rose" />
+        <Form />
+      </div>
+    </RecoilRoot>
+  );
+}
