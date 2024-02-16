@@ -8,7 +8,7 @@ const TabView = (props: Tabprops) => {
   const { openTabIndex, onSelectFunction, selectedTextColor } = props;
 
   return (
-    <div className="grid gap-6 grid-cols-3 py-8 ">
+    <div className="grid  grid-cols-3 py-8 ">
       <a
         className={
           "text-xs  font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-center " +
